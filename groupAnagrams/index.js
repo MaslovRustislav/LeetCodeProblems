@@ -5,7 +5,7 @@
 var groupAnagrams = function (strs) {
   let result = [];
   const groupedAnagrams = new Map();
-  const sortedStrs = strs.forEach((str) => {
+  strs.forEach((str) => {
     sortedWord = str.split("").sort().join("");
     if (groupedAnagrams.get(sortedWord)) {
       groupedAnagrams.set(sortedWord, [...groupedAnagrams.get(sortedWord), str]);
@@ -13,7 +13,7 @@ var groupAnagrams = function (strs) {
       groupedAnagrams.set(sortedWord, [str]);
     }
   });
-  for (let [key, value] of groupedAnagrams) {
+  for (let [, value] of groupedAnagrams) {
     result.push(value);
   }
   return result;
